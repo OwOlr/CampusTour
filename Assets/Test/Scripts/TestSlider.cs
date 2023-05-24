@@ -16,11 +16,12 @@ public class TestSlider : MonoBehaviour
     private void Awake()
     {
         color = Color.white;
+
     }
 
     public void ChangeAlpha()
     {
-        color.a = slider.value;
+        color.a = 1f-slider.value;
         testImg.color = color;
     }
 
