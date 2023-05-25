@@ -1,11 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class OpenURL : MonoBehaviour
+    , IPointerClickHandler
 {
+
+
+    [SerializeField]
+    private string posterUrl;
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Application.OpenURL(posterUrl);
+    }
+
+   
+
     public void GoogleURL()
     {
-        Application.OpenURL("https://www.google.com");
+        Application.OpenURL(posterUrl);
     }
 }
