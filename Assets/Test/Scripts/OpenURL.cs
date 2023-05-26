@@ -10,7 +10,7 @@ public class OpenURL : MonoBehaviour
 
 
     [SerializeField]
-    private string posterUrl;
+    public string posterUrl;
 
     public void OnPointerClick(PointerEventData eventData)
     {
