@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class Album : MonoBehaviour
 {
-    [SerializeField] RawImage[] photos; 
+    [SerializeField] private RawImage[] photos;
+    [SerializeField] private Photo[] textureInfo;
 
     private ScreenShot screenShot;
 
@@ -21,6 +22,7 @@ public class Album : MonoBehaviour
     private void Awake()
     {
         photos = GetComponentsInChildren<RawImage>();
+        textureInfo = GetComponentsInChildren<Photo>();
         
     }
 
@@ -82,10 +84,20 @@ public class Album : MonoBehaviour
         {
             for(int i = 0; i < photos.Length; i++)
             {
-                //if (photos[i].Isout)
-                File.Delete(pngFiles[0]);
+                if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
+                {
+                    File.Delete(pngFiles[i]);
+                }
+                    
             }
-             
+
+            for (int i = 0; i < textureInfo.Length; i++)
+            {
+                if (textureInfo[i].Outerline.enabled)
+                    textureInfo[i].OutlineOnOff();
+            }
+                
+
             SystemIOFileLoad();
         }
     }
