@@ -12,21 +12,15 @@ public class Photo : MonoBehaviour
 
     public void Clicked()
     {
-        Debug.Log("Clicked " + gameObject);
         OutlineOnOff();
     }
 
-    private void OutlineOnOff()
+    public void OutlineOnOff()
     {
         if(outerLine.enabled)
             outerLine.enabled = false;
         else outerLine.enabled = true;
 
-    }
-
-    public bool IsOuterLineEnabled()
-    {
-        return outerLine.enabled;
     }
 
 }
