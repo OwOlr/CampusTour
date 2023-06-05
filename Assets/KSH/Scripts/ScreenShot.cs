@@ -23,7 +23,7 @@ public class ScreenShot : MonoBehaviour
 
     [SerializeField] RawImage rawImage;
 
-    [SerializeField] GameObject go;
+    //[SerializeField] GameObject go;
 
     Renderer renderer = null;
 
@@ -95,7 +95,7 @@ public class ScreenShot : MonoBehaviour
 
     private void ObjectFindInCamera()
     {
-        GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
         foreach (GameObject obj in allObjects)
         {
             renderer = obj.GetComponent<Renderer>();

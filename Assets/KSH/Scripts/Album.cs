@@ -21,26 +21,25 @@ public class Album : MonoBehaviour
     private void Awake()
     {
         photos = GetComponentsInChildren<RawImage>();
-
         
     }
 
     private void Start()
     {
-        directoryPath = Application.persistentDataPath + "/ScreenShots/";
-
-        SystemIOFileLoad();
+        directoryPath = Application.persistentDataPath + "/ScreenShots/";        
 
         if (!Directory.Exists(directoryPath))
         {
             Directory.CreateDirectory(directoryPath);
             Debug.Log("Folder created: " + directoryPath);
         }
+
+        SystemIOFileLoad();
     }
 
-    private void SystemIOFileLoad()
+    public void SystemIOFileLoad()
     {  
-        Debug.Log(photos.Length);        
+        Debug.Log("Album Loaded");        
 
         pngFiles = Directory.GetFiles(directoryPath, "*.png");
 

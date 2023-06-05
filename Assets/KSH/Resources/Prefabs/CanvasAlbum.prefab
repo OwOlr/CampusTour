@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bd0633641103c4c8868369fa1391e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  album: {fileID: 163062997070983605}
+  album: {fileID: 163062997380882663}
+  albumText: {fileID: 163062997601609616}
 --- !u!1 &163062997070983605
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ GameObject:
   - component: {fileID: 163062997442280062}
   - component: {fileID: 163062997442280061}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Screen Shot Path Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,7 +438,7 @@ GameObject:
   - component: {fileID: 163062997601609617}
   - component: {fileID: 163062997601609616}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Album Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
