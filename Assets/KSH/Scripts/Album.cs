@@ -45,7 +45,10 @@ public class Album : MonoBehaviour
 
         pngFiles = Directory.GetFiles(directoryPath, "*.png");
 
-        for(int i = 0; i < photos.Length; i++) 
+        Debug.Log(pngFiles.Length);
+        Debug.Log(photos.Length);
+
+        for (int i = 0; i < photos.Length; i++) 
         {
             photos[i].texture = null;
 
@@ -56,11 +59,14 @@ public class Album : MonoBehaviour
                 texture.LoadImage(byteTextures);
                 photos[i].texture = texture;
             }
-            
-
+                        
             if (photos[i].texture == null)
             {
                 photos[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                photos[i].gameObject.SetActive(true);
             }
         }
 
@@ -87,8 +93,29 @@ public class Album : MonoBehaviour
                 if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
                 {
                     File.Delete(pngFiles[i]);
+                }                    
+            }
+
+            for (int i = 0; i < textureInfo.Length; i++)
+            {
+                if (textureInfo[i].Outerline.enabled)
+                    textureInfo[i].OutlineOnOff();
+            }                
+
+            SystemIOFileLoad();
+        }
+    }
+
+    public void DeletePhotoes()
+    {
+        if (pngFiles.Length != 0)
+        {
+            for (int i = 0; i < photos.Length; i++)
+            {
+                if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
+                {
+                    File.Delete(pngFiles[i]);
                 }
-                    
             }
 
             for (int i = 0; i < textureInfo.Length; i++)
@@ -96,7 +123,7 @@ public class Album : MonoBehaviour
                 if (textureInfo[i].Outerline.enabled)
                     textureInfo[i].OutlineOnOff();
             }
-                
+
 
             SystemIOFileLoad();
         }

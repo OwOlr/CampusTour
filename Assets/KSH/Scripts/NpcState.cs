@@ -64,7 +64,7 @@ public class NpcState : MonoBehaviour
     }
 
     private void ChangeState()
-    {       
+    {    
 
         curTime += Time.deltaTime;
         

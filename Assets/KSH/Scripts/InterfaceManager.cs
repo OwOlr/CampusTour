@@ -23,12 +23,12 @@ public class InterfaceManager : MonoBehaviour
 
     private void AlbumOnOff()
     {
-        if (album.gameObject.activeSelf)
-        {
+        if (album.gameObject.activeSelf) //for Off
+        {            
             album.gameObject.SetActive(false);
             albumText.gameObject.SetActive(false);
         }            
-        else
+        else //for On
         {
             album.SystemIOFileLoad();
             album.gameObject.SetActive(true);
