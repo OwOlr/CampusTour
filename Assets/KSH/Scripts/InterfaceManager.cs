@@ -5,8 +5,18 @@ using TMPro;
 
 public class InterfaceManager : MonoBehaviour
 {
-    [SerializeField] private Album album;
-    [SerializeField] private TextMeshProUGUI albumText;
+
+    //[SerializeField] private GameObject albumObj;
+
+    private Album album;
+    private TextMeshProUGUI albumText;        
+
+    private void Awake()
+    {
+        album = GetComponentInChildren<Album>();
+
+        albumText = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     private void Start()
     {

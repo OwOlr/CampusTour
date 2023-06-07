@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Album : MonoBehaviour
-{
+{   
+    [SerializeField] private GameObject PhotoArray; //Dragged GameObject 
+
     [SerializeField] private RawImage[] photos;
     [SerializeField] private Photo[] textureInfo;
 
@@ -21,8 +23,9 @@ public class Album : MonoBehaviour
 
     private void Awake()
     {
-        photos = GetComponentsInChildren<RawImage>();
-        textureInfo = GetComponentsInChildren<Photo>();
+
+        photos = PhotoArray.GetComponentsInChildren<RawImage>();
+        textureInfo = PhotoArray.GetComponentsInChildren<Photo>();
         
     }
 
@@ -84,30 +87,10 @@ public class Album : MonoBehaviour
         //photos[0].SetNativeSize(); //Covered All Screen
     }
 
-    private void Update()
+    public void DeletePhotoes() //Call by Delete Button
     {
-        if(pngFiles.Length != 0 && Input.GetKeyUp(KeyCode.Delete))
-        {
-            for(int i = 0; i < photos.Length; i++)
-            {
-                if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
-                {
-                    File.Delete(pngFiles[i]);
-                }                    
-            }
+        bool delComplete = false;
 
-            for (int i = 0; i < textureInfo.Length; i++)
-            {
-                if (textureInfo[i].Outerline.enabled)
-                    textureInfo[i].OutlineOnOff();
-            }                
-
-            SystemIOFileLoad();
-        }
-    }
-
-    public void DeletePhotoes()
-    {
         if (pngFiles.Length != 0)
         {
             for (int i = 0; i < photos.Length; i++)
@@ -115,6 +98,8 @@ public class Album : MonoBehaviour
                 if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
                 {
                     File.Delete(pngFiles[i]);
+
+                    delComplete = true;
                 }
             }
 
@@ -124,8 +109,13 @@ public class Album : MonoBehaviour
                     textureInfo[i].OutlineOnOff();
             }
 
-
-            SystemIOFileLoad();
+            if (delComplete)
+                SystemIOFileLoad();
         }
+    }
+
+    public void CloseAlbum()
+    {
+        gameObject.SetActive(false);
     }
 }

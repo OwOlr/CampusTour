@@ -749,6 +749,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 163062997380882658, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
+      propertyPath: m_Name
+      value: PhotoArray
+      objectReference: {fileID: 0}
     - target: {fileID: 163062998463355884, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1229,8 +1233,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 163062997380882663, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
+--- !u!1 &913122050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 163062997380882658, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
+  m_PrefabInstance: {fileID: 896387702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &935785139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1487,10 +1497,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2037138478}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2037138480}
+        m_TargetAssemblyTypeName: Album, Assembly-CSharp
+        m_MethodName: CloseAlbum
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1558,6 +1568,21 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 163062997070983606, guid: 8323e40d7b38ed848bcf98d98ee731f0, type: 3}
   m_PrefabInstance: {fileID: 896387702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2037138480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037138478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10bb7867612432e4d9bd7f24ac0dcc5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PhotoArray: {fileID: 913122050}
+  photos: []
+  textureInfo: []
 --- !u!1 &2068696686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1596,7 @@ GameObject:
   - component: {fileID: 2068696689}
   - component: {fileID: 2068696688}
   m_Layer: 5
-  m_Name: SelectButton
+  m_Name: DeleteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1641,7 +1666,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068696689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2037138480}
+        m_TargetAssemblyTypeName: Album, Assembly-CSharp
+        m_MethodName: DeletePhotoes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2068696689
 MonoBehaviour:
   m_ObjectHideFlags: 0
