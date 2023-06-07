@@ -280,6 +280,7 @@ MonoBehaviour:
   productImg: {fileID: 0}
   productTxts: []
   contents: {fileID: 0}
+  orderBoxPrefab: {fileID: 0}
 --- !u!114 &8331215579022300457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +383,7 @@ MonoBehaviour:
   productImg: {fileID: 0}
   productTxts: []
   contents: {fileID: 0}
+  orderBoxPrefab: {fileID: 0}
 --- !u!1 &8331215579909932810
 GameObject:
   m_ObjectHideFlags: 0

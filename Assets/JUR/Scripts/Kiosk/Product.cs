@@ -14,7 +14,9 @@ public class Product : MonoBehaviour
     private TextMeshProUGUI[] productTxts;
 
     [SerializeField]
-    private OrderList contents;
+    private RectTransform contents;
+    [SerializeField]
+    private GameObject orderBoxPrefab;
 
     public delegate void OnClickPdBtnDelegate(string _name,int _price);
     public OnClickPdBtnDelegate pdBtndelegate = null;
@@ -24,7 +26,8 @@ public class Product : MonoBehaviour
         productBtns = GetComponent<Button>();
         productImg = GetComponentInChildren<Image>();
         productTxts = GetComponentsInChildren<TextMeshProUGUI>();
-        contents = GetComponent<OrderList>();
+        contents = transform.parent.GetComponent<RectTransform>();
+        orderBoxPrefab = Resources.Load<GameObject>("Prefabs/OrderBox");
 
     }
 
@@ -38,8 +41,9 @@ public class Product : MonoBehaviour
 
     public void OnClickProduct()
     {
-        pdBtndelegate?.Invoke(productTxts[0].text, 200);
-        pdBtndelegate?.Invoke(productTxts[0].text, 200);
+        //pdBtndelegate?.Invoke(productTxts[0].text, 200);
+        GameObject initOrderBox = Instantiate(orderBoxPrefab,contents.transform);
+
     }   
 
 }

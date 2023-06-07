@@ -12,7 +12,7 @@ public class OrderList : MonoBehaviour
 
     public void Start()
     {
-        Product.OnClickPdBtnDelegate = SelectProduct;
+        //Product.OnClickPdBtnDelegate = SelectProduct;
     }
     public void SelectProduct(string _name, int _price)
     {
@@ -20,7 +20,5 @@ public class OrderList : MonoBehaviour
         TextMeshProUGUI[] texts = orderGo.GetComponentsInChildren<TextMeshProUGUI>();
         texts[0].text = _name;
         texts[1].text = _price.ToString();
-
-
     }
 }

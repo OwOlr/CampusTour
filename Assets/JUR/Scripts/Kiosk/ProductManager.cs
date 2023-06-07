@@ -30,7 +30,7 @@ public class ProductManager : MonoBehaviour
     {
         for (int i = 0; i < productList.Count; i++)
         {
-            GameObject productBtn = Instantiate(productBtnPrefab, this.transform);
+            GameObject productBtn = Instantiate(productBtnPrefab,transform);
 
             Product btn = productBtn.GetComponent<Product>();
             btn.InitInfo(productList[i].productImg, productList[i].productName, 
