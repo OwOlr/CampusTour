@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Product : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Button productBtns;
+    [SerializeField]
+    private Image productImg;
+    [SerializeField]
+    private TextMeshProUGUI[] productTxts;
+
+    [SerializeField]
+    private OrderList contents;
+
+    public delegate void OnClickPdBtnDelegate(string _name,int _price);
+    public OnClickPdBtnDelegate pdBtndelegate = null;
+
+    private void Awake()
     {
-        
+        productBtns = GetComponent<Button>();
+        productImg = GetComponentInChildren<Image>();
+        productTxts = GetComponentsInChildren<TextMeshProUGUI>();
+        contents = GetComponent<OrderList>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitInfo(Sprite _img, string _name, int _price, int _stock)
     {
-        
+        productImg.sprite = _img;
+        productTxts[0].text = _name;
+        productTxts[1].text = _price.ToString();
+        productTxts[2].text = _stock.ToString() + "°³";
     }
+
+    public void OnClickProduct()
+    {
+        pdBtndelegate?.Invoke(productTxts[0].text, 200);
+        pdBtndelegate?.Invoke(productTxts[0].text, 200);
+    }   
+
 }
