@@ -10,7 +10,7 @@ public class Photo : MonoBehaviour
     [SerializeField] Outline outerLine;
     public Outline Outerline { get => outerLine; }
 
-    public void Clicked()
+    public void Clicked() //Called by Button Component
     {
         OutlineOnOff();
     }
