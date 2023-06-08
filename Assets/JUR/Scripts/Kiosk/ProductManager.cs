@@ -21,6 +21,9 @@ public class ProductManager : MonoBehaviour
     [SerializeField]
     private GameObject productBtnPrefab;
 
+    [SerializeField]
+    private RectTransform contents;
+
     private void Awake()
     {
         InitProduct();
@@ -31,6 +34,8 @@ public class ProductManager : MonoBehaviour
         for (int i = 0; i < productList.Count; i++)
         {
             GameObject productBtn = Instantiate(productBtnPrefab,transform);
+            Product product = productBtn.GetComponent<Product>();
+            product.Init(contents);
 
             Product btn = productBtn.GetComponent<Product>();
             btn.InitInfo(productList[i].productImg, productList[i].productName, 
