@@ -120,4 +120,12 @@ public class Album : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void PhotoEnableControl()
+    {
+        for(int i = 0; i < textureInfo.Length; i++)
+        {
+            textureInfo[i].ButtonEnable();
+        }
+    }
 }
