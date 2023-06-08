@@ -26,12 +26,14 @@ public class Album : MonoBehaviour
 
         photos = PhotoArray.GetComponentsInChildren<RawImage>();
         textureInfo = PhotoArray.GetComponentsInChildren<Photo>();
-        
+
+        directoryPath = Application.persistentDataPath + "/ScreenShots/";
+
     }
 
     private void Start()
     {
-        directoryPath = Application.persistentDataPath + "/ScreenShots/";        
+            
 
         if (!Directory.Exists(directoryPath))
         {
