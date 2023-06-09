@@ -10,6 +10,13 @@ public class Photo : MonoBehaviour
     [SerializeField] Outline outerLine;
     public Outline Outerline { get => outerLine; }
 
+    Button button;
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+    }
+
     public void Clicked() //Called by Button Component
     {
         OutlineOnOff();
@@ -21,6 +28,13 @@ public class Photo : MonoBehaviour
             outerLine.enabled = false;
         else outerLine.enabled = true;
 
+    }
+
+    public void ButtonEnable()
+    {
+        if (button.interactable)
+            button.interactable = false;
+        else button.interactable = true;
     }
 
 }

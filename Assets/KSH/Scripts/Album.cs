@@ -26,12 +26,14 @@ public class Album : MonoBehaviour
 
         photos = PhotoArray.GetComponentsInChildren<RawImage>();
         textureInfo = PhotoArray.GetComponentsInChildren<Photo>();
-        
+
+        directoryPath = Application.persistentDataPath + "/ScreenShots/";
+
     }
 
     private void Start()
     {
-        directoryPath = Application.persistentDataPath + "/ScreenShots/";        
+            
 
         if (!Directory.Exists(directoryPath))
         {
@@ -40,6 +42,8 @@ public class Album : MonoBehaviour
         }
 
         SystemIOFileLoad();
+
+        PhotoEnableControl(); //변경 예정
     }
 
     public void SystemIOFileLoad()
@@ -117,5 +121,13 @@ public class Album : MonoBehaviour
     public void CloseAlbum()
     {
         gameObject.SetActive(false);
+    }
+
+    public void PhotoEnableControl()
+    {
+        for(int i = 0; i < textureInfo.Length; i++)
+        {
+            textureInfo[i].ButtonEnable();
+        }
     }
 }
