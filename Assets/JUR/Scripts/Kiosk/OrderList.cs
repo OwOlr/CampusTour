@@ -22,7 +22,10 @@ public class OrderList : MonoBehaviour
     
     //주문 목록에 들어간 상품 정보 리스트
     [SerializeField]
-    private List<OrderInfos> orderInfoList;
+    public List<OrderInfos> orderInfoList;
+
+    [SerializeField]
+    private RectTransform orderContens;
     
 
 
@@ -40,7 +43,6 @@ public class OrderList : MonoBehaviour
         {
             if(list.productName == _name)
             {
-                list.orderStock++;
                 return;
             }
         }
@@ -49,6 +51,7 @@ public class OrderList : MonoBehaviour
         orderInfo.orderStock++;
         orderInfoList.Add(orderInfo);
         
+
     }
 
 
@@ -61,6 +64,7 @@ public class OrderList : MonoBehaviour
         {
             GameObject orderGo = Instantiate(orderListPrefab, this.transform);
             OrderBox orderbox = orderGo.GetComponent<OrderBox>();
+            orderbox.OrderBoxInit(orderContens);
         
             orderbox.AddOrderProduct(orderInfoList[i].productName, 
                 orderInfoList[i].orderPrice, orderInfoList[i].orderStock);

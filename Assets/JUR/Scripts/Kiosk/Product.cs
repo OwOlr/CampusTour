@@ -40,6 +40,7 @@ public class Product : MonoBehaviour
         OrderList orderList = contents.GetComponent<OrderList>();
         //orderList.SendProductBtnInfo(productTxts[0].text, int.Parse(productTxts[1].text));
         orderList.GetProductInfo(productTxts[0].text, int.Parse(productTxts[1].text));
+        orderList.SetOrderBtn();
     }   
 
 }
