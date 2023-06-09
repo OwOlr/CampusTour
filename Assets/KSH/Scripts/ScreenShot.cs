@@ -29,13 +29,18 @@ public class ScreenShot : MonoBehaviour
 
     private int mag;
 
+    private void Awake()
+    {
+        path = Application.persistentDataPath + "/ScreenShots/";
+    }
+
     private void Start()
     {
         Debug.Log("Press \"SPACE\" to Capture Screen");
 
         resWidth = Screen.width;
         resHeight = Screen.height;
-        path = Application.persistentDataPath + "/ScreenShots/";
+        
 
 
         tmpText.text = " ";
