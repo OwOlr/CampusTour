@@ -42,6 +42,8 @@ public class Album : MonoBehaviour
         }
 
         SystemIOFileLoad();
+
+        PhotoEnableControl(); //변경 예정
     }
 
     public void SystemIOFileLoad()
