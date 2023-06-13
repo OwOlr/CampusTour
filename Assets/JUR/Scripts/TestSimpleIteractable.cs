@@ -39,6 +39,18 @@ public class TestSimpleIteractable : XRBaseInteractable
                 float dis = Vector3.Distance(baseObject.transform.position, targetObject.transform.position);
                 Debug.Log("Distance : "+ dis);
 
+                RectTransform rect = baseObject.GetComponent<RectTransform>();
+                RectTransform btnRect = this.GetComponent<RectTransform>();
+
+                ////Right , Top
+                //rect.offsetMax = new Vector2(10f, 20f);
+                ////Left , Bottom
+                //rect.offsetMin = new Vector2(50f,60f);
+
+                //Right , Top
+                rect.offsetMax = new Vector2(btnRect.offsetMax.x - 50, rect.offsetMax.y);
+                //Left , Bottom
+                rect.offsetMin = new Vector2(rect.offsetMin.x, btnRect.offsetMin.y + 50);
             }
         }
         
