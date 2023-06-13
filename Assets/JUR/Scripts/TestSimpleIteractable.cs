@@ -11,14 +11,49 @@ public class TestSimpleIteractable : XRBaseInteractable
     [SerializeField]
     private InputActionReference triggerActionReference;
 
-    public bool preseed;
+    private XRBaseInteractor inputInteractor;
+
+    public Transform baseObject;
+    public Transform targetObject;
+
+    public bool ishover;
+    public bool isTrigger;
     
+    public bool preseed;
+
+    private void Start()
+    {
+        triggerActionReference.action.performed += ClickDebug;   
+    }
+    private void FixedUpdate()
+    {
+        if (ishover)
+        {
+            float isOnOff = triggerActionReference.action.ReadValue<float>();
+
+            if (isOnOff > 0f)
+            {
+                Debug.Log("Pressed Trigger!!");
+                this.transform.position = new Vector3(inputInteractor.transform.position.x,
+                    inputInteractor.transform.position.y, this.transform.position.z);
+                float dis = Vector3.Distance(baseObject.transform.position, targetObject.transform.position);
+                Debug.Log("Distance : "+ dis);
+
+            }
+        }
+        
+    }
 
     protected override void OnHoverEntered(XRBaseInteractor interactor)
     {
-        triggerActionReference.action.performed += ClickDebug;
+        ishover = true;
+        inputInteractor = interactor;
 
-        
+
+    }
+    protected override void OnHoverExited(XRBaseInteractor interactor)
+    {
+        ishover = false;
     }
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
@@ -30,10 +65,12 @@ public class TestSimpleIteractable : XRBaseInteractable
 
     protected override void OnSelectEntering(XRBaseInteractor interactor)
     {
-        Debug.Log("SelectEntering : " + this.name);
-        this.transform.position = new Vector3(interactor.transform.position.x, 
-            interactor.transform.position.y, this.transform.position.z);
-        preseed = true;
+        if (interactor.CompareTag("Left Hand"))
+        {
+            Debug.Log("SelectEntering : " + this.name);
+            this.transform.position = new Vector3(interactor.transform.position.x,
+                interactor.transform.position.y, this.transform.position.z);
+        }
     }
 
     protected override void OnSelectExited(XRBaseInteractor interactor)

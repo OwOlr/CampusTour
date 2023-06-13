@@ -1358,12 +1358,12 @@
                 },
                 {
                     "name": "Trigger",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "062b2a3f-0147-4da4-9c5d-029157ed6a6e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
