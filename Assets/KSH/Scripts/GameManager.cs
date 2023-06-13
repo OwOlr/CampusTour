@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
-    [SerializeField] private ScreenShot screenShotObj;
-
     private void Awake()
     {
         if (null == instance)
@@ -33,4 +31,24 @@ public class GameManager : MonoBehaviour
             return instance;
         }
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.L))
+        {
+            SaveData loadThings = DataManager.Load("Test");
+            Debug.Log("Loadinging " + loadThings);
+
+            if (loadThings != null) 
+            {
+                foreach(string data in loadThings.objInfo)
+                {
+                    Debug.Log(data);
+                }
+            }
+
+                        
+        }
+    }
+
 }

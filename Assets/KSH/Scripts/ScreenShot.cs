@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.TextCore.Text;
 
 public class ScreenShot : MonoBehaviour
 {
@@ -16,12 +17,12 @@ public class ScreenShot : MonoBehaviour
     private string path;
     public string Path { get { return path; } }
 
-    [SerializeField] RenderTexture myRt;
+    //[SerializeField] RenderTexture myRt;
 
     [SerializeField] private TextMeshProUGUI tmpText;
     //public TextMeshProUGUI TmpText { get { return tmpText; } }
 
-    [SerializeField] RawImage rawImage;
+    //[SerializeField] RawImage rawImage;
 
     //[SerializeField] GameObject go;
 
@@ -76,10 +77,10 @@ public class ScreenShot : MonoBehaviour
         fileName = path + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
         RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
         camera.targetTexture = rt;
-        rawImage.texture = rt;
+        //rawImage.texture = rt;
         Texture2D screenShot = new Texture2D(resWidth, resHeight, TextureFormat.RGB24, false);
         Rect rec = new Rect(0, 0, screenShot.width, screenShot.height);
-        camera.Render();
+        //camera.Render();
         RenderTexture.active = rt;
         screenShot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
         screenShot.Apply();
@@ -96,15 +97,25 @@ public class ScreenShot : MonoBehaviour
     private void ObjectFindInCamera()
     {
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        List<string> ObjInfo = new List<string>();
+
         foreach (GameObject obj in allObjects)
         {
             renderer = obj.GetComponent<Renderer>();
 
-            if (renderer != null && renderer.enabled && IsObjectVisibleFromCamera(renderer, camera))
+            if (renderer != null && renderer.enabled && IsObjectVisibleFromCamera(renderer, camera) && !obj.CompareTag("Untagged"))
             {
                 Debug.Log("Visible Object: " + obj.name);
+
+                ObjInfo.Add(obj.name);
+
+                
             }
         }
+
+        SaveData ScreenShotInfo = new SaveData(ObjInfo);
+        DataManager.Save(ScreenShotInfo, "Test");
+        
     }
 
     private bool IsObjectVisibleFromCamera(Renderer renderer, Camera camera)
