@@ -418,7 +418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &244054914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1373,15 +1373,15 @@ GameObject:
   - component: {fileID: 1108877348}
   - component: {fileID: 1108877347}
   - component: {fileID: 1108877349}
-  - component: {fileID: 1108877351}
   - component: {fileID: 1108877352}
+  - component: {fileID: 1108877353}
   m_Layer: 5
   m_Name: simpleTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1108877345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1456,7 +1456,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &1108877351
+--- !u!65 &1108877352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108877344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 109.21124, y: 107.36143, z: 0.01}
+  m_Center: {x: -0.29242408, y: 0.04214048, z: 0}
+--- !u!114 &1108877353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1465,7 +1478,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108877344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3930b705ee46047ba8b47a757b117c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7061355177f4c014181d49a170f277f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1118600196}
@@ -1545,25 +1558,11 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  triggerActionReference: {fileID: -98009794365048336, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   baseObject: {fileID: 845569291}
   targetObject: {fileID: 1108877345}
-  ishover: 0
-  isTrigger: 0
-  preseed: 0
---- !u!65 &1108877352
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108877344}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 109.21124, y: 107.36143, z: 0.01}
-  m_Center: {x: -0.29242408, y: 0.04214048, z: 0}
+  isSelect: 0
+  isHover: 0
+  triggerActionReference: {fileID: -98009794365048336, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1118600196 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7494123704773942018, guid: 7299a0ff85f07b342b8f20092a52df94, type: 3}
