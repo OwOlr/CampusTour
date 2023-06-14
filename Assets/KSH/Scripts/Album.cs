@@ -43,7 +43,6 @@ public class Album : MonoBehaviour
 
         SystemIOFileLoad();
 
-        PhotoEnableControl(); //변경 예정
     }
 
     public void SystemIOFileLoad()
@@ -52,43 +51,55 @@ public class Album : MonoBehaviour
 
         pngFiles = Directory.GetFiles(directoryPath, "*.png");
 
-        Debug.Log(pngFiles.Length);
-        Debug.Log(photos.Length);
+        Debug.Log(textureInfo.Length);
 
-        for (int i = 0; i < photos.Length; i++) 
+        for (int i = 0; i < textureInfo.Length; i++)
         {
-            photos[i].texture = null;
+            //textureInfo[i].Image.texture = null;
+            textureInfo[i].SetTexture(null);
 
             if (pngFiles.Length > i)
             {
                 byteTextures = File.ReadAllBytes(pngFiles[i]);
                 texture = new Texture2D(2, 2);
                 texture.LoadImage(byteTextures);
-                photos[i].texture = texture;
+                //textureInfo[i].Image.texture = texture;
+                textureInfo[i].SetTexture(texture);
             }
-                        
-            if (photos[i].texture == null)
+
+            if (textureInfo[i].Image.texture == null)
             {
-                photos[i].gameObject.SetActive(false);
+                textureInfo[i].Image.gameObject.SetActive(false);
             }
             else
             {
-                photos[i].gameObject.SetActive(true);
+                textureInfo[i].Image.gameObject.SetActive(true);
             }
         }
 
-        //for (int i = 0; i < pngFiles.Length; i++) 
-        //{
-        //    byteTextures = File.ReadAllBytes(pngFiles[i]);
-        //    texture = new Texture2D(2, 2);
-        //    texture.LoadImage(byteTextures);
-        //    photos[i].texture = texture;
 
+        //for (int i = 0; i < photos.Length; i++) 
+        //{
+        //    photos[i].texture = null;
+
+        //    if (pngFiles.Length > i)
+        //    {
+        //        byteTextures = File.ReadAllBytes(pngFiles[i]);
+        //        texture = new Texture2D(2, 2);
+        //        texture.LoadImage(byteTextures);
+        //        photos[i].texture = texture;
+        //    }
+                        
+        //    if (photos[i].texture == null)
+        //    {
+        //        photos[i].gameObject.SetActive(false);
+        //    }
+        //    else
+        //    {
+        //        photos[i].gameObject.SetActive(true);
+        //    }
         //}
 
-        //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
-
-        //photos[0].SetNativeSize(); //Covered All Screen
     }
 
     public void DeletePhotoes() //Call by Delete Button
@@ -97,7 +108,8 @@ public class Album : MonoBehaviour
 
         if (pngFiles.Length != 0)
         {
-            for (int i = 0; i < photos.Length; i++)
+            //for (int i = 0; i < photos.Length; i++)
+            for (int i = 0; i < textureInfo.Length; i++)
             {
                 if (textureInfo[i].Outerline.enabled && i < textureInfo.Length)
                 {
@@ -123,11 +135,11 @@ public class Album : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void PhotoEnableControl()
+    public void PhotoEnterControl()
     {
         for(int i = 0; i < textureInfo.Length; i++)
         {
-            textureInfo[i].ButtonEnable();
+            textureInfo[i].ButtonEnterAndSelect();
         }
     }
 }

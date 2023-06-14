@@ -160,3 +160,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outerLine: {fileID: 8704479775279735977}
+  information: {fileID: 0}
+  infoImage: {fileID: 0}

@@ -9,7 +9,11 @@ public class InterfaceManager : MonoBehaviour
     //[SerializeField] private GameObject albumObj;
 
     private Album album;
-    private TextMeshProUGUI albumText;        
+    private TextMeshProUGUI albumText;
+
+    //[SerializeField] private TextMeshProUGUI pathText;
+
+    [SerializeField] private GameObject camInterface;
 
     private void Awake()
     {
@@ -29,6 +33,11 @@ public class InterfaceManager : MonoBehaviour
         {
             AlbumOnOff();
         }
+
+        if(Input.GetKeyUp(KeyCode.O))
+        {
+            OpenCamera();
+        }
     }
 
     private void AlbumOnOff()
@@ -45,5 +54,17 @@ public class InterfaceManager : MonoBehaviour
             albumText.gameObject.SetActive(true);
         }
 
+    }
+
+    private void OpenCamera()
+    {
+        if (!camInterface.activeSelf) //for on
+        {
+            camInterface.SetActive(true);
+        }
+        else //for off
+        {
+            camInterface.SetActive(false);
+        }
     }
 }
