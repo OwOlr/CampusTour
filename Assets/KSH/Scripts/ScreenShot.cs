@@ -111,9 +111,9 @@ public class ScreenShot : MonoBehaviour
 
             if (renderer != null && renderer.enabled && IsObjectVisibleFromCamera(renderer, camera) && !obj.CompareTag("Untagged"))
             {
-                Debug.Log("Visible Object: " + obj.name);
+                Debug.Log("Visible Object: " + obj.tag);
 
-                ObjInfo.Add(obj.name);                
+                ObjInfo.Add(obj.tag);                
             }
         }
 

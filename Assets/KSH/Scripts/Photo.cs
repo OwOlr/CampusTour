@@ -118,7 +118,9 @@ public class Photo : MonoBehaviour
 
     public void InfoLoad()
     {
-        tagInfo = DataManager.Load(fileName);
+        Debug.Log(fileName);
+
+        tagInfo = DataManager.Load(fileName);        
 
         if (tagInfo == null) 
         {

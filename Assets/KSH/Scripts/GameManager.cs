@@ -36,20 +36,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyUp(KeyCode.L))
-        {
-            SaveData loadThings = DataManager.Load("Test");
-            Debug.Log("Loadinging " + loadThings);
-
-            if (loadThings != null) 
-            {
-                
-            }
-
-                        
-        }
-    }
-
 }
