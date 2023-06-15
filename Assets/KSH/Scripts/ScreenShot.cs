@@ -20,14 +20,15 @@ public class ScreenShot : MonoBehaviour
     //[SerializeField] RenderTexture myRt;
 
     [SerializeField] private TextMeshProUGUI tmpText;
-    //public TextMeshProUGUI TmpText { get { return tmpText; } }
 
     [SerializeField] RawImage rawImage;
 
     Renderer renderer = null;
-    
 
     private int mag;
+
+    //private int numOfpng;
+    //public int NumOfpng { get => NumOfpng; }
 
     private void Start()
     {
@@ -69,12 +70,15 @@ public class ScreenShot : MonoBehaviour
         }
 
         Debug.Log("File count : " + dir.GetFiles().Length);
+
         if (dir.GetFiles().Length >= 64)
         {            
             return;
         }
 
-        fileName = path + System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".png";
+        string strNow = System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+
+        fileName = path + strNow + ".png";
         RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
         camera.targetTexture = rt;
         rawImage.texture = rt;
@@ -93,10 +97,10 @@ public class ScreenShot : MonoBehaviour
         Invoke("TextOff", 2f);
 
 
-        ObjectFindInCamera();
+        ObjectFindInCamera(strNow);
     }
 
-    private void ObjectFindInCamera() //in MakeScreenShot();
+    private void ObjectFindInCamera(string strNow) //in MakeScreenShot();
     {
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
         List<string> ObjInfo = new List<string>();
@@ -109,15 +113,13 @@ public class ScreenShot : MonoBehaviour
             {
                 Debug.Log("Visible Object: " + obj.name);
 
-                ObjInfo.Add(obj.name);
-
-                
+                ObjInfo.Add(obj.name);                
             }
         }
 
         SaveData ScreenShotInfo = new SaveData(ObjInfo);
-        DataManager.Save(ScreenShotInfo, "Test");
-        
+        DataManager.Save(ScreenShotInfo, strNow);
+                
     }
 
     private bool IsObjectVisibleFromCamera(Renderer renderer, Camera camera)

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance = null;
 
+    ScreenShot screenShot;
+
     private void Awake()
     {
         if (null == instance)
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instance);
         }
+
+        screenShot = GetComponent<ScreenShot>();
 
     }
     public static GameManager Instance
@@ -41,10 +45,7 @@ public class GameManager : MonoBehaviour
 
             if (loadThings != null) 
             {
-                foreach(string data in loadThings.objInfo)
-                {
-                    Debug.Log(data);
-                }
+                
             }
 
                         

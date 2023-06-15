@@ -8,7 +8,7 @@ public class Album : MonoBehaviour
 {   
     [SerializeField] private GameObject PhotoArray; //Dragged GameObject 
 
-    [SerializeField] private RawImage[] photos;
+    //[SerializeField] private RawImage[] photos;
     [SerializeField] private Photo[] textureInfo;
 
     private ScreenShot screenShot;
@@ -24,7 +24,7 @@ public class Album : MonoBehaviour
     private void Awake()
     {
 
-        photos = PhotoArray.GetComponentsInChildren<RawImage>();
+        //photos = PhotoArray.GetComponentsInChildren<RawImage>();
         textureInfo = PhotoArray.GetComponentsInChildren<Photo>();
 
         directoryPath = Application.persistentDataPath + "/ScreenShots/";
@@ -46,11 +46,12 @@ public class Album : MonoBehaviour
     }
 
     public void SystemIOFileLoad()
-    {  
+    {
+        string splitstr = null;
+
         Debug.Log("Album Loaded");        
 
         pngFiles = Directory.GetFiles(directoryPath, "*.png");
-
         Debug.Log(textureInfo.Length);
 
         for (int i = 0; i < textureInfo.Length; i++)
@@ -58,13 +59,20 @@ public class Album : MonoBehaviour
             //textureInfo[i].Image.texture = null;
             textureInfo[i].SetTexture(null);
 
+            
             if (pngFiles.Length > i)
             {
+                splitstr = pngFiles[i].Split("ScreenShots/")[1];
+                splitstr = splitstr.Split('.')[0];
+
                 byteTextures = File.ReadAllBytes(pngFiles[i]);
                 texture = new Texture2D(2, 2);
                 texture.LoadImage(byteTextures);
                 //textureInfo[i].Image.texture = texture;
                 textureInfo[i].SetTexture(texture);
+                textureInfo[i].SetFileName(splitstr);
+                Debug.Log("split : " + splitstr);
+
             }
 
             if (textureInfo[i].Image.texture == null)

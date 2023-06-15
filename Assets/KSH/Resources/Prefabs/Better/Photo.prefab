@@ -162,3 +162,6 @@ MonoBehaviour:
   outerLine: {fileID: 8704479775279735977}
   information: {fileID: 0}
   infoImage: {fileID: 0}
+  information2: {fileID: 0}
+  information3: {fileID: 0}
+  tagText: {fileID: 0}
