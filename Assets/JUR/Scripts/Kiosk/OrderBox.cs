@@ -16,11 +16,12 @@ public class OrderBox : MonoBehaviour
     private RectTransform orderContents;
 
 
-
     public void OrderBoxInit(RectTransform _orderContens)
     {
         orderContents = _orderContens;
         orderList = orderContents.GetComponent<OrderList>();
+
+
     }
 
     public void AddOrderProduct(string _name, int _price, int _stock)
@@ -29,6 +30,7 @@ public class OrderBox : MonoBehaviour
         texts[0].text = _name;
         texts[1].text = _price.ToString();
         texts[2].text = _stock.ToString();
+        orderList.accountManager.GetTotal();
     }
 
     public void OnClickPlusBtn()
@@ -39,6 +41,7 @@ public class OrderBox : MonoBehaviour
             {
                 list.orderStock++;
                 texts[2].text = list.orderStock.ToString();
+                orderList.accountManager.GetTotal();
                 return;
             }
         }
@@ -48,10 +51,11 @@ public class OrderBox : MonoBehaviour
     {
         foreach (OrderList.OrderInfos list in orderList.orderInfoList)
         {
-            if (list.productName == texts[0].text)
+            if (list.productName == texts[0].text && list.orderStock >  0)
             {
                 list.orderStock--;
                 texts[2].text = list.orderStock.ToString();
+                orderList.accountManager.GetTotal();
                 return;
             }
         }

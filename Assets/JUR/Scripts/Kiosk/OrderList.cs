@@ -26,12 +26,15 @@ public class OrderList : MonoBehaviour
 
     [SerializeField]
     private RectTransform orderContens;
+
+    [SerializeField]
+    public AccountManager accountManager;
     
 
 
     private void Start()
     {
-        orderInfoList = new List<OrderInfos>();   
+        orderInfoList = new List<OrderInfos>();
     }
 
    //주문 목록에 들어갈 상품 목록 정보 받아오기 
@@ -50,8 +53,6 @@ public class OrderList : MonoBehaviour
         orderInfo.orderPrice = _price;
         orderInfo.orderStock++;
         orderInfoList.Add(orderInfo);
-        
-
     }
 
 
@@ -73,7 +74,7 @@ public class OrderList : MonoBehaviour
     }
 
     //주문목록 업데이트를 위한 모든 자식(프리팹) 삭제
-    private void DestroyOrderList()
+    public void DestroyOrderList()
     {
         OrderBox[] destroyOrder = null;
         destroyOrder = GetComponentsInChildren<OrderBox>();
