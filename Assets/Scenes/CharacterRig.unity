@@ -1194,6 +1194,18 @@ PrefabInstance:
       value: chara
       objectReference: {fileID: 0}
     - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1646772
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000000023841857
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.000000038146972
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.75557315
       objectReference: {fileID: 0}
@@ -1208,6 +1220,18 @@ PrefabInstance:
     - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.15450314
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920676918501120980, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 961210195233335601, guid: 94897096fc5fe784fb70f44c386991f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2170,8 +2194,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handAnimator: {fileID: 0}
+  triggerL: {fileID: -2359514439644819102, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  grabL: {fileID: -7942476184861160138, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   triggerR: {fileID: -98009794365048336, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  grabL: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  grabR: {fileID: 3081967472426708852, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &923529719
 GameObject:
   m_ObjectHideFlags: 0

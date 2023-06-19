@@ -9,9 +9,14 @@ public class HandAnimation : MonoBehaviour
     private Animator handAnimator;
 
     [SerializeField]
-    private InputActionReference triggerR;
+    private InputActionReference triggerL;
     [SerializeField]
     private InputActionReference grabL;
+
+    [SerializeField]
+    private InputActionReference triggerR;
+    [SerializeField]
+    private InputActionReference grabR;
 
     private void Start()
     {
@@ -19,16 +24,17 @@ public class HandAnimation : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Trigger r : " + triggerR.action.ReadValue<float>());
-        if (triggerR.action.ReadValue<float>() > 0)
+
+        //Left 애니메이션
+        if (triggerL.action.ReadValue<float>() > 0)
         {
-            handAnimator.SetFloat("TriggerR", 1f);
+            handAnimator.SetFloat("TriggerL", 1f);
         }
-        if (triggerR.action.ReadValue<float>() <= 0)
+        if (triggerL.action.ReadValue<float>() <= 0)
         {
-            handAnimator.SetFloat("TriggerR", 0f);
+            handAnimator.SetFloat("TriggerL", 0f);
         }
-        
+
         if (grabL.action.ReadValue<float>() > 0)
         {
             handAnimator.SetFloat("GrabL", 1f);
@@ -38,6 +44,24 @@ public class HandAnimation : MonoBehaviour
             handAnimator.SetFloat("GrabL", 0f);
         }
 
+        //Right 애니메이션
+        if (triggerR.action.ReadValue<float>() > 0)
+        {
+            handAnimator.SetFloat("TriggerR", 1f);
+        }
+        if (triggerR.action.ReadValue<float>() <= 0)
+        {
+            handAnimator.SetFloat("TriggerR", 0f);
+        }
+
+        if (grabR.action.ReadValue<float>() > 0)
+        {
+            handAnimator.SetFloat("GrabR", 1f);
+        }
+        if (grabR.action.ReadValue<float>() <= 0)
+        {
+            handAnimator.SetFloat("GrabR", 0f);
+        }
     }
 
 
