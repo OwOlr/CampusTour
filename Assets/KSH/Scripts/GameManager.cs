@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     ScreenShot screenShot;
 
-    [SerializeField] List<Portal> potal; 
  
     private void Awake()
     {
