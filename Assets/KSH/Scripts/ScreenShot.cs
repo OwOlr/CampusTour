@@ -5,7 +5,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.TextCore.Text;
-using UnityEngine.InputSystem;
 
 public class ScreenShot : MonoBehaviour
 {
@@ -28,8 +27,6 @@ public class ScreenShot : MonoBehaviour
 
     private int mag;
 
-    [SerializeField] private InputActionReference shot;
-
     //private int numOfpng;
     //public int NumOfpng { get => NumOfpng; }
 
@@ -50,8 +47,6 @@ public class ScreenShot : MonoBehaviour
 
     private void Update()
     {
-        shot.action.performed += MakeScreenShot;
-
         InputCaptureKey();
 
         ZoomInOut();
@@ -61,12 +56,12 @@ public class ScreenShot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         { 
-            //MakeScreenShot(); // ObjectFindInCamera() is in;           
+            MakeScreenShot(); // ObjectFindInCamera() is in;           
         }
 
     }
 
-    private void MakeScreenShot(InputAction.CallbackContext obj)
+    private void MakeScreenShot()
     {
         DirectoryInfo dir = new DirectoryInfo(path);
         if (!dir.Exists)

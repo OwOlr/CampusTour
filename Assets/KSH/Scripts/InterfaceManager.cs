@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class InterfaceManager : MonoBehaviour
 {
 
     //[SerializeField] private GameObject albumObj;
-
-    [SerializeField]
-    private InputActionReference albumInteraction;
-    [SerializeField]
-    private InputActionReference cameraInteraction;
 
     private Album album;
     private TextMeshProUGUI albumText;
@@ -30,26 +24,23 @@ public class InterfaceManager : MonoBehaviour
 
     private void Start()
     {
-        //AlbumOnOff();
+        AlbumOnOff();
     }
 
     private void Update()
     {
-        //if(Input.GetKeyUp(KeyCode.P))
-        //{
-        //    AlbumOnOff();
-        //}
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            AlbumOnOff();
+        }
 
-        albumInteraction.action.performed += AlbumOnOff;
-        cameraInteraction.action.performed += OpenCamera;
-
-        //if (Input.GetKeyUp(KeyCode.O))
-        //{
-        //    OpenCamera();
-        //}
+        if(Input.GetKeyUp(KeyCode.O))
+        {
+            OpenCamera();
+        }
     }
 
-    private void AlbumOnOff(InputAction.CallbackContext obj)
+    private void AlbumOnOff()
     {
         if (album.gameObject.activeSelf) //for Off
         {            
@@ -65,7 +56,7 @@ public class InterfaceManager : MonoBehaviour
 
     }
 
-    private void OpenCamera(InputAction.CallbackContext obj)
+    private void OpenCamera()
     {
         if (!camInterface.activeSelf) //for on
         {
