@@ -9,7 +9,7 @@ public class HandAnimation : MonoBehaviour
     private Animator handAnimator;
 
     [SerializeField]
-    private InputActionReference triggerL;
+    private InputActionReference triggerR;
     [SerializeField]
     private InputActionReference grabL;
 
@@ -19,13 +19,14 @@ public class HandAnimation : MonoBehaviour
     }
     private void Update()
     {
-        if (triggerL.action.ReadValue<float>() > 0)
+        Debug.Log("Trigger r : " + triggerR.action.ReadValue<float>());
+        if (triggerR.action.ReadValue<float>() > 0)
         {
-            handAnimator.SetFloat("TriggerL", 1f);
+            handAnimator.SetFloat("TriggerR", 1f);
         }
-        if (triggerL.action.ReadValue<float>() <= 0)
+        if (triggerR.action.ReadValue<float>() <= 0)
         {
-            handAnimator.SetFloat("TriggerL", 0f);
+            handAnimator.SetFloat("TriggerR", 0f);
         }
         
         if (grabL.action.ReadValue<float>() > 0)
