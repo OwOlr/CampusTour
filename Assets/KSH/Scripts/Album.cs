@@ -4,8 +4,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Album : MonoBehaviour
-{   
+{
+    
+
     [SerializeField] private GameObject PhotoArray; //Dragged GameObject 
 
     //[SerializeField] private RawImage[] photos;
