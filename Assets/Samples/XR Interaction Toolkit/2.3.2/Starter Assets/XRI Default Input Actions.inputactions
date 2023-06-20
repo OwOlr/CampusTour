@@ -666,6 +666,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ScreenShot",
+                    "type": "Button",
+                    "id": "2a20f903-1bb5-4e26-a618-b73738fa6f17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -804,7 +813,7 @@
                 {
                     "name": "",
                     "id": "a945ef80-a1b7-47ff-8561-0ecb4c03e841",
-                    "path": "<XRController>{RightHand}/primaryButton",
+                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -831,6 +840,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d76641ea-811f-4c37-820a-b0ab302dea23",
+                    "path": "<OculusTouchController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScreenShot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1413,6 +1433,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Album",
+                    "type": "Button",
+                    "id": "5b6b1e2c-10d4-4b43-9bc2-3a4820fea6e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1567,6 +1596,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aed46867-4d0d-4423-bae2-7bd4b1d074c4",
+                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Album",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

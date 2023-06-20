@@ -5,10 +5,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.TextCore.Text;
+using UnityEngine.InputSystem;
 
 public class ScreenShot : MonoBehaviour
 {
-
+    [SerializeField] private InputActionReference screenShot;
     [SerializeField] private Camera camera;       //보여지는 카메라.
     private string fileName;
     private int resWidth;
@@ -47,21 +48,22 @@ public class ScreenShot : MonoBehaviour
 
     private void Update()
     {
-        InputCaptureKey();
+        //InputCaptureKey();
+        screenShot.action.performed += MakeScreenShot;
 
         ZoomInOut();
     }
 
     private void InputCaptureKey()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        { 
-            MakeScreenShot(); // ObjectFindInCamera() is in;           
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{ 
+        //    MakeScreenShot; // ObjectFindInCamera() is in;           
+        //}
 
     }
 
-    private void MakeScreenShot()
+    private void MakeScreenShot(InputAction.CallbackContext obj)
     {
         DirectoryInfo dir = new DirectoryInfo(path);
         if (!dir.Exists)

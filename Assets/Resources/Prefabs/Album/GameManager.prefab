@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2509697453531945147}
   - component: {fileID: 2509697453531945144}
   - component: {fileID: 2509697453531945146}
+  - component: {fileID: 2509697451688504023}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -57,6 +58,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63be1e578de233b42bb46581c9bc5fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenShot: {fileID: 8022183117257115792, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   camera: {fileID: 0}
   tmpText: {fileID: 0}
-  rawImage: {fileID: 0}
+  rawImage: {fileID: 2109925777695728598, guid: fc379e14e668aa04482c5e4c10a7c511, type: 3}
+--- !u!114 &2509697451688504023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509697453531945145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe06f5dc60136284c9f0193b4b58b840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMoney: 100000

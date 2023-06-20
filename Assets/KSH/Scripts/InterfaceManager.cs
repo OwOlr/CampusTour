@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class InterfaceManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class InterfaceManager : MonoBehaviour
 
     private Album album;
     private TextMeshProUGUI albumText;
+
+    [SerializeField]
+    private InputActionReference albumKey;
 
     //[SerializeField] private TextMeshProUGUI pathText;
 
@@ -24,15 +28,15 @@ public class InterfaceManager : MonoBehaviour
 
     private void Start()
     {
-        AlbumOnOff();
     }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.P))
-        {
-            AlbumOnOff();
-        }
+        //if(Input.GetKeyUp(KeyCode.P))
+        //{
+        //    AlbumOnOff();
+        //}
+        albumKey.action.performed += AlbumOnOff;
 
         if(Input.GetKeyUp(KeyCode.O))
         {
@@ -40,7 +44,7 @@ public class InterfaceManager : MonoBehaviour
         }
     }
 
-    private void AlbumOnOff()
+    private void AlbumOnOff(InputAction.CallbackContext obj)
     {
         if (album.gameObject.activeSelf) //for Off
         {            
